@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    /*background: url("background3.jpg") no-repeat center center fixed;*/
+    background: rgb(4, 9, 58);
+    overflow-x: hidden;
+    font-family: 'Roboto', serif;
+}
+
+.main-bar {
+    width: 100%;
+    min-height: 30%;
+    max-height: 30%;
+    /*padding: 10px;*/
+    background: #5a5afa;
+    text-align: center;
+    color: white;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /*margin-top: 50px;*/
+    /*padding: 10px;*/
+}
+
+.main-menu {
+    width: 10%;
+    height: 58rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    background: rgba(0, 0, 0, .6);
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 0 2px 0 0;
+    border-style: solid;
+    border-image: linear-gradient(to bottom,#067bcc,rgba(0, 0, 0, .6)) 1;
+    /*border-right: 2px solid #3a3a3a;*/
+}
+
+.bt-menu {
+    width: 100%;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background: none;
+    color:white;
+    border-radius: 5px;
+    text-align: left;
+    align-items: center;
+    display:flex;
+    column-gap: 10px;
+}
+
+.bt-menu:hover {
+    background: #067bcc;
+    color: white;
+}
+
+.btn-menu-activated {
+    background: #023a5e;
+    color: white;
+}
+
+.main-display {
+    width: 87.7%;
+    height: 58rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /*background: white;*/
+    background: rgba(0, 0, 0, 0.45);
+    position:relative;
+}
+
+
+/*.button-activated{*/
+/*    background: rgba(194, 194, 194, 1);*/
+/*}*/
+
+
+/*.search-bar {*/
+/*    width: 80%;*/
+/*    height: 2rem;*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    background: #343434;*/
+/*    border-radius: 2px;*/
+/*    color: white;*/
+/*    padding-left: 10px;*/
+/*}*/
+
+/*.find-button {*/
+/*    width: 16%;*/
+/*    height: 2rem;*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    background: #343434;*/
+/*    border-radius: 2px;*/
+/*    color: white;*/
+/*}*/
+
+/*.add-button {*/
+/*    width: 10%;*/
+/*    height: 2rem;*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    background: #343434;*/
+/*    border-radius: 2px;*/
+/*    color: white;*/
+/*}*/
+
+/*.find-button:hover {*/
+/*    background: #00ffd8;*/
+/*    color: white;*/
+/*}*/
+
+/*.add-button:hover {*/
+/*    background: #049f34;*/
+/*    color: white;*/
+/*}*/
+
+@media (min-width: 1001px) and (max-width: 1300px) {
+    .main-container {
+        zoom: 53%;
+    }
+
+}
+
+@media (min-width: 1301px) and (max-width: 1400px) {
+    .main-container {
+        zoom: 70%;
+    }
+
+}
+
+@media (min-width: 1401px) and (max-width: 1790px) {
+    .main-container {
+        zoom: 80%;
+    }
+
+}
+
+@media (min-width: 1791px) and (max-width: 2560px) {
+    .main-container {
+        zoom: 100%;
+    }
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill{
+    background: transparent;
+}

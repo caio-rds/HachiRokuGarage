@@ -1,0 +1,242 @@
+.customer-form {
+    display: none;
+    /*display: flex;*/
+    flex-direction: column;
+    row-gap: 5px;
+    width: 30%;
+    max-height: 60%;
+    padding: 10px;
+    background: rgba(37, 37, 37, 0.7);
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+.cust-form-btn {
+    display: flex;
+    column-gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.cust-search-div {
+    top: 10px;
+    position: absolute;
+    padding: 5px;
+    background: rgba(37, 37, 37, 0.7);
+    column-gap: 10px;
+    height: 4.5rem;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.cust-search-bar {
+    width: 97%;
+    height: 2rem;
+    outline: none;
+    border: 1px solid #067bcc;
+    background: #343434;
+    border-radius: 2px;
+    color: white;
+    padding-left: 10px;
+}
+
+.cust-search-label {
+    width: fit-content;
+    color: white;
+    top: 10px;
+    margin-left: 6px;
+    font-size: 12px;
+    background: #067bcc;
+    padding: 2px 5px 2px 5px;
+    border-radius: 2px;
+    position: absolute;
+}
+
+.cust-two-field-form {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cust-form-input-big {
+    width: 95%;
+    height: 2rem;
+    outline: none;
+    border: 1px solid #067bcc;
+    background: none;
+    border-radius: 2px 2px 2px 2px;
+    color: white;
+    padding-left: 10px;
+}
+
+.cust-form-input-tiny {
+    width: 90%;
+    height: 2rem;
+    outline: none;
+    border: 1px solid #067bcc;
+
+    background: none;
+    border-radius: 2px 2px 2px 2px;
+    color: white;
+    padding-left: 10px;
+}
+
+.cust-form-input-date {
+    width: 90%;
+    height: 2rem;
+    outline: none;
+    /*border-bottom: 1px solid #067bcc;*/
+    /*margin-bottom: -1px;*/
+    border: 1px solid #067bcc;
+    background: none;
+    border-radius: 0 2px 2px 2px;
+    color: white;
+    padding-left: 10px;
+}
+
+.cust-find-button {
+    width: 10%;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background: #343434;
+    border-radius: 2px;
+    color: white;
+}
+
+.cust-add-button {
+    width: 10%;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background: #343434;
+    border-radius: 2px;
+    color: white;
+}
+
+.cust-label {
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    justify-content: center;
+    text-align: left;
+}
+
+.label-form-cust {
+    width: fit-content;
+    color: white;
+    margin-bottom: 45px;
+    margin-left: 6px;
+    font-size: 12px;
+    background: #067bcc;
+    padding: 2px 5px 2px 5px;
+    border-radius: 2px;
+    position: absolute;
+}
+
+.cust-form-submit {
+    width: 20%;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background: #343434;
+    border-radius: 2px;
+    color: white;
+
+}
+
+.cust-form-cancel {
+    width: 20%;
+    height: 2rem;
+    outline: none;
+    border: none;
+    background: #343434;
+    border-radius: 2px;
+    color: white;
+}
+
+.cust-find-button:hover {
+    background: #00ffd8;
+    color: white;
+}
+
+.cust-add-button:hover {
+    background: #049f34;
+    color: white;
+}
+
+.cust-form-submit:hover {
+    background: rgb(89, 197, 24);
+    color: white;
+}
+
+.cust-form-cancel:hover {
+    background: #ff0000;
+    color: white;
+}
+
+.cust-btn-activated {
+    background: rgb(89, 197, 24);
+    outline: 1px solid rgb(194, 194, 194);
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    margin-right: 10px;
+}
+
+.show-customer {
+    display: none;
+    flex-direction: column;
+    row-gap: 5px;
+    height: 60%;
+    width: 60%;
+    max-height: 60%;
+    padding: 10px;
+    background: rgba(175, 26, 26, 0.7);
+    align-items: center;
+    border-radius: 5px;
+    position: absolute;
+    top: 20%;
+}
+
+.show-cars {
+    display:block;
+    width:100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.exp-car-head-div {
+    display: flex;
+    width: 100%;
+    height:4rem;
+    justify-content: center;
+    align-items: center;
+    background: #067bcc;
+    text-align: center;
+}
+
+.expander-cars {
+    display: block;
+    padding: 10px;
+    width: 97.8%;
+    transition: 0.75s ease-in-out;
+    min-height: 0;
+    height: 30px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+}
+
