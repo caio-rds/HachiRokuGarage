@@ -309,8 +309,9 @@
     padding: 0 0 1.25em;
     border: none;
     border-radius: 5px;
-    background: #fff;
-    color: #545454;
+    background: rgba(37, 37, 37, 1);
+    /*color: #545454;*/
+    color:white;
     font-family: inherit;
     font-size: 1rem
 }
