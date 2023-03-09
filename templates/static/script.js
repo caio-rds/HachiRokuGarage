@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('#cep').mask('00000-000', {reverse: true});
     MainPage()
 });
+let customers = {}
 
 //working fine - don't touch
 function OpenCustomer() {
@@ -12,20 +13,21 @@ function OpenCustomer() {
 
 // in progress
 $(document).on('click', '.cust-find-button', function () {
-    $('.cust-add-button').removeClass('cust-btn-activated')
-    $('.customer-form').css('display', 'none')
+    $('.cust-add-button').removeClass('cust-btn-activated');
+    $('.customer-form').css('display', 'none');
+    $('.show-customer').css('display', 'none');
 
     let customer = $('#find-customer').val()
 
-    if (customer === '') {
-        Swal.fire({
-            title: 'Error',
-            text: 'Não há identificador para o cliente',
-            icon: 'error',
-            confirmButtonText: 'Ok'
-        })
-        return
-    }
+    // if (customer === '') {
+    //     Swal.fire({
+    //         title: 'Error',
+    //         text: 'Não há identificador para o cliente',
+    //         icon: 'error',
+    //         confirmButtonText: 'Ok'
+    //     })
+    //     return
+    // }
 
     $.ajax({
         contentType: 'application/json',
@@ -36,32 +38,28 @@ $(document).on('click', '.cust-find-button', function () {
         type: 'GET',
         success: function (data) {
             if (data.status === 'success') {
-                $('.show-customer').css('display', 'flex').html(`                    
-                    <h3>${data.customer.name}</h3>
-            
-                    <p>CPF: ${data.customer.cpf}</p>
-                    <p>Telefone: ${data.customer.phone}</p>
-                    <p>Endereço: ${data.customer.address}</p>
-                    <p>CEP: ${data.customer.postal_code}</p>
-                    <p>Cidade: ${data.customer.city}</p>
-                    <p>Estado: ${data.customer.state}</p>
-                    
-                    <div class="show-cars">
-                        <div class="exp-car-head-div">Carros de ${data.name}</div>
-                        <div class="expander-cars">                
-                            Car 1<br>Car 2
-                        </div>                 
-                    </div>   
-                `);
-            }else if (data.status === 'error') {
-                    Swal.fire({
-                        title: 'Error',
-                        text: data.message,
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-                }
-            },
+                customers = data["customers"]
+                $('.customers-list-div').css('display', 'flex').html('');
+                $.each(data["customers"], function (id, customer) {
+                    $('.customers-list-div').append(`
+                        <div class="customer-card">
+                            <div class="expander-customer" data-cust-id="${id}">
+                                <h3>${customer.name}</h3>
+                                <p>CPF: ${customer.cpf}</p>
+                            </div>                            
+                        </div>
+                    `)
+                })
+
+            } else if (data.status === 'error') {
+                Swal.fire({
+                    title: 'Error',
+                    text: data.message,
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            }
+        },
         error: function (data) {
             console.log(data)
             Swal.fire({
@@ -72,6 +70,36 @@ $(document).on('click', '.cust-find-button', function () {
             })
         }
     })
+});
+
+$(document).on('click', '.expander-customer', function () {
+    let id_cust = $(this).attr('data-cust-id')
+    $('.customers-list-div').css('display', 'none');
+    $('.show-customer').css('display', 'flex').html(`
+        <div class="back-to-list"><i class="fas fa-chevron-left"></i></div>
+        <div class="edit-customer"><i class="fas fa-edit"></i></div>
+        <div class="delete-customer"><i class="fas fa-trash-alt"></i></div>
+        <h3>${customers[id_cust].name}</h3>
+
+        <p>CPF: ${customers[id_cust].cpf}</p>
+        <p>Telefone: ${customers[id_cust].phone}</p>
+        <p>Endereço: ${customers[id_cust].address}</p>
+        <p>CEP: ${customers[id_cust].postal_code}</p>
+        <p>Cidade: ${customers[id_cust].city}</p>
+        <p>Estado: ${customers[id_cust].state}</p>
+
+        <div class="show-cars">
+            <div class="exp-car-head-div">Carros de ${customers[id_cust].name}</div>
+            <div class="expander-cars">
+                Car 1<br>Car 2
+            </div>
+        </div>
+    `);
+});
+
+$(document).on('click', '.back-to-list', function () {
+    $('.customers-list-div').css('display', 'flex');
+    $('.show-customer').css('display', 'none');
 });
 
 $(document).on('click', '.exp-car-head-div', function () {
@@ -135,7 +163,6 @@ $('#cep').focusout(function () {
     }
 });
 
-
 function ValidateZipCode(cep) {
     $.ajax({
         contentType: 'application/json',
@@ -146,7 +173,7 @@ function ValidateZipCode(cep) {
         type: 'GET',
         success: function (data) {
             if (data.status === 'success') {
-                $('#address').val(data.content.address+ ', ').focus()
+                $('#address').val(data.content.address + ', ').focus()
                 $('#city').val(data.content.city)
                 $('#state').val(data.content.state)
 
@@ -161,3 +188,45 @@ function ValidateZipCode(cep) {
         }
     })
 }
+
+// began to work - finally
+$(document).on('click', '.cust-form-submit', function (event) {
+    event.preventDefault()
+    $.ajax({
+        contentType: 'application/json',
+        url: 'customers/',
+        data: $(this).serialize(),
+        dataType: 'json',
+        type: 'POST',
+        success: function (data) {
+            if (data.status === 'success') {
+                Swal.fire({
+                    title: 'Sucesso',
+                    text: 'Cliente castrado com sucesso.',
+                    confirmButtonText: `Sim`,
+                    icon: 'success',
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        OpenCustomer()
+                    }
+                });
+            } else if (data.status === 'error') {
+                Swal.fire({
+                    title: 'Error',
+                    text: data.message,
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        },
+        error: function () {
+            Swal.fire({
+                title: 'Error',
+                text: 'Erro ao cadastrar cliente',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        }
+    })
+});
