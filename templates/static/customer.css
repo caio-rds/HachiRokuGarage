@@ -199,16 +199,61 @@
 .show-customer {
     display: none;
     flex-direction: column;
+    color:white;
     row-gap: 5px;
     height: 60%;
     width: 60%;
     max-height: 60%;
     padding: 10px;
-    background: rgba(175, 26, 26, 0.7);
+    background: rgba(37, 37, 37, 0.7);
     align-items: center;
     border-radius: 5px;
     position: absolute;
     top: 20%;
+}
+
+.back-to-list {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    border-radius:5px;
+    width: 30px;
+    height: 30px;
+    background: #067bcc;
+    text-align: center;
+    line-height: 165%;
+    font-size: 20px;
+}
+
+.edit-customer {
+    position: absolute;
+    left: 60px;
+    top: 10px;
+    border-radius:5px;
+    width: 30px;
+    height: 30px;
+    background: #067bcc;
+    text-align: center;
+    line-height: 150%;
+    font-size: 20px;
+}
+
+.delete-customer {
+    position: absolute;
+    left: 100px;
+    top: 10px;
+    border-radius:5px;
+    width: 30px;
+    height: 30px;
+    background: #067bcc;
+    text-align: center;
+    line-height: 160%;
+    font-size: 20px;
+}
+
+.back-to-list:hover, .edit-customer:hover, .delete-customer:hover {
+    cursor: pointer;
+    background: #00ffd8;
 }
 
 .show-cars {
@@ -240,3 +285,27 @@
     border: 1px solid #ddd;
 }
 
+
+.customers-list-div  {
+    display: none;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow-y: auto;
+    row-gap: 10px;
+}
+
+.expander-customer {
+    display: flex;
+    padding: 10px;
+    width: 97.8%;
+    transition: 0.75s ease-in-out;
+    min-height: 0;
+    height: 80px;
+    background-color: #f2f2f2;
+    border: 2px solid #ddd;
+    border-radius:2px;
+}

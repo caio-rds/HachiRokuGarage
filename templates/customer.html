@@ -17,7 +17,7 @@
         <button class="cust-add-button"><i class="fa fa-plus"></i></button>
     </div>
 
-    <form action="{% url 'customers:crud' %}" method="POST" class="customer-form">
+    <form id="cust-form" class="customer-form">
         {% csrf_token %}
         <div class="cust-label">
             <label for="fname" class="label-form-cust">Nome Completo:</label>
@@ -41,7 +41,7 @@
             <label for="email" class="label-form-cust">Email:</label>
             <input
                     type="text" name="email" id="email" class="cust-form-input-big"
-                    placeholder="johndoe@seuemail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+                    placeholder="johndoe@seuemail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             >
         </div>
         <div class="cust-two-field-form">
@@ -71,11 +71,13 @@
             </div>
         </div>
         <div class="cust-form-btn">
-            <button type="submit" class="cust-form-submit">Cadastrar</button>
+            <button type="button" class="cust-form-submit">Cadastrar</button>
             <button type="reset" class="cust-form-cancel" onclick="CancelForm()">Cancelar</button>
         </div>
     </form>
 
+    <div class="customers-list-div">
+    </div>
     <div class="show-customer"></div>
 </body>
 </html>
