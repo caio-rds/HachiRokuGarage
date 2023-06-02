@@ -8,7 +8,7 @@ let customers = {}
 
 //working fine - don't touch
 function OpenCustomer() {
-    $('.main-display').load('customers/main-page/')
+    $('.main-display').load('core/customers-page/')
 }
 
 // in progress
@@ -31,7 +31,7 @@ $(document).on('click', '.cust-find-button', function () {
 
     $.ajax({
         contentType: 'application/json',
-        url: 'customers/',
+        url: 'core/customers/',
         data: {
             'identify': customer
         },
@@ -42,11 +42,9 @@ $(document).on('click', '.cust-find-button', function () {
                 $('.customers-list-div').css('display', 'flex').html('');
                 $.each(data["customers"], function (id, customer) {
                     $('.customers-list-div').append(`
-                        <div class="customer-card">
-                            <div class="expander-customer" data-cust-id="${id}">
-                                <h3>${customer.name}</h3>
-                                <p>CPF: ${customer.cpf}</p>
-                            </div>                            
+                        <div class="expander-customer" data-cust-id="${id}">
+                            <h3>${customer.name}</h3>
+                            <p>CPF: ${customer.cpf}</p>                                                    
                         </div>
                     `)
                 })
@@ -102,6 +100,21 @@ $(document).on('click', '.back-to-list', function () {
     $('.show-customer').css('display', 'none');
 });
 
+$(document).on('click', '.delete-customer', function () {
+    Swal.fire({
+        title: 'Deseja deletar?',
+        text: "Essa ação não poderá ser desfeita!",
+        icon: 'warning',
+        showDenyButton: true,
+        confirmButtonText: `Sim`,
+        denyButtonText: `Não`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire('Deletado!', '', 'success')
+        }
+    });
+});
+
 $(document).on('click', '.exp-car-head-div', function () {
     let car_expander = $('.expander-cars')
     if (car_expander.css('height') === '5px') {
@@ -115,13 +128,13 @@ $(document).on('click', '.exp-car-head-div', function () {
 // working fine - don't touch
 $(document).on('click', '.cust-add-button', function () {
     let isActive = $(this).hasClass('cust-btn-activated')
+    $('.customers-list-div').css('display', 'none')
     $('.show-customer').css('display', 'none')
     if (!isActive) {
         $('.cust-add-button').addClass('cust-btn-activated')
         $('.customer-form').css('display', 'flex')
     } else {
-        $('.cust-add-button').removeClass('cust-btn-activated')
-        $('.customer-form').css('display', 'none')
+        CancelForm()
     }
 });
 
@@ -148,7 +161,7 @@ $(document).on('click', '.bt-menu', function () {
 
 // working fine - don't touch
 function MainPage() {
-    $('.main-display').html(`Bem Vindo a Página Principal`)
+    $('.main-display').load('core/main-page/')
 }
 
 $(document).on('input', '#cep', function () {
@@ -173,9 +186,10 @@ function ValidateZipCode(cep) {
         type: 'GET',
         success: function (data) {
             if (data.status === 'success') {
-                $('#address').val(data.content.address + ', ').focus()
+                $('#street').val(data.content.address + ', ').focus()
                 $('#city').val(data.content.city)
                 $('#state').val(data.content.state)
+                $('#number').focus()
 
             } else if (data.status === 'error') {
                 Swal.fire({
@@ -194,7 +208,7 @@ $(document).on('click', '.cust-form-submit', function (event) {
     event.preventDefault()
     $.ajax({
         contentType: 'application/json',
-        url: 'customers/',
+        url: 'core/customers/',
         data: $(this).serialize(),
         dataType: 'json',
         type: 'POST',

@@ -8,7 +8,9 @@ class Customer(models.Model):
     cpf = models.CharField(max_length=20)
     birth_date = models.DateField()
     postal_code = models.CharField(max_length=20)
-    address = models.CharField(max_length=200)
+    street = models.CharField(max_length=200)
+    number = models.CharField(max_length=5)
+    complement = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
 

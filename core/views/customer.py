@@ -7,6 +7,11 @@ def load_customer_page(request):
         return TemplateResponse(request, 'customer.html')
 
 
+def load_main_page(request):
+    if request.method == 'GET':
+        return TemplateResponse(request, 'main-page.html')
+
+
 def customer(request):
     if request.method == 'PUT':
         print(request.POST)
@@ -54,15 +59,4 @@ def customer(request):
                     'state': 'Rio de Janeiro'
                 }
             }
-            # 'customer': {
-            #     'name': 'John Doe',
-            #     'email': 'johndoe@gmail.com',
-            #     'phone': '123456789',
-            #     'cpf': '123456789',
-            #     'birth_date': '01/01/2000',
-            #     'postal_code': '21810-000',
-            #     'address': 'Rua Antonio Cerazio, 111',
-            #     'city': 'Rio de Janeiro',
-            #     'state': 'Rio de Janeiro'
-            # }
         })

@@ -4,28 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Main-Page</title>
-{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
-    <script src="{% static 'jquery/jq.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static '/style.css' %}">
-    <link rel="stylesheet" href="{% static '/customer.css' %}">
-    <script src="https://kit.fontawesome.com/4cc266f988.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="{% static 'jquery-mask-plugin/dist/jquery.mask.min.js' %}"></script>
-    <script src="{% static 'Swal/sweetalert2.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'Swal/sweetalert2.min.css' %}">
-    <script src="{% static 'script.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static '/main-page.css' %}">
 </head>
 <body>
-<div class="main-container">
-    <div class="main-menu">
-        <img src="{% static 'logo.png' %}" alt="logo" class="logo">
-        <button class="bt-menu" id="main-page" onclick="MainPage()"><i class="fas fa-home"></i>Principal</button>
-        <button class="bt-menu" id="customer" onclick="OpenCustomer()"><i class="fas fa-user"></i>Cliente</button>
-        <button class="bt-menu" id="cars"><i class="fas fa-car"></i>Carros</button>
-        <button class="bt-menu"><i class="fas fa-wallet"></i>Serviços</button>
-        <button class="bt-menu"><i class="fas fa-cog"></i>Configurações</button>
+    <div class="login-area">
+
+        <div class="login-head">
+            L O G I N<br>
+            <div style="font-size: 15px;">HachiRoku Garage</div>
+        </div>
+
+        <div class="login-section">
+            <label for="username" class="login-label">Username</label>
+            <input type="text" id="username" class="login-input">
+        </div>
+
+        <div class="login-section">
+            <label for="password" class="login-label">Password</label>
+            <input type="password" id="password" class="login-input">
+        </div>
+
+        <div class="login-button-div">
+            <button class="login-button">Login</button>
+            <button class="register-button">Registrar</button>
+        </div>
+{#        <div class="login-button-div">#}
+{#            <button class="register-button">Registrar</button>#}
+{#        </div>#}
+        <button class="recovery-account">Recuperar Conta</button>
     </div>
-    <div class="main-display"></div>
-</div>
+    <script src="static/main-page.js"></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HachiRoku Garage</title>
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
+    <script src="{% static 'jquery/jq.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+    <link rel="stylesheet" href="{% static '/customer.css' %}">
+    <script src="https://kit.fontawesome.com/4cc266f988.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="{% static 'jquery-mask-plugin/dist/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'Swal/sweetalert2.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Swal/sweetalert2.min.css' %}">
+    <script src="{% static 'script.js' %}" defer></script>
+</head>
+<body>
+<div class="main-container">
+    <div class="main-menu">
+        <img src="{% static 'Screenshot_2.png' %}" alt="logo" class="logo">
+        <button class="bt-menu" id="main-page" onclick="MainPage()"><i class="fas fa-home"></i>Principal</button>
+        <button class="bt-menu" id="customer" onclick="OpenCustomer()"><i class="fas fa-user"></i>Cliente</button>
+        <button class="bt-menu" id="cars"><i class="fas fa-car"></i>Carros</button>
+        <button class="bt-menu"><i class="fas fa-wallet"></i>Serviços</button>
+        <button class="bt-menu"><i class="fas fa-cog"></i>Configurações</button>
+    </div>
+    <div class="main-display"></div>
+</div>
+</body>
+</html>

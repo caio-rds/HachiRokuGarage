@@ -20,6 +20,6 @@ from .views.mainpage import view as mp_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mp_view.main_page),
-    path('customers/', include('core.urls', namespace='customers')),
+    path('core/', include('core.urls', namespace='core')),
     path('services/', include('services.urls', namespace='services'))
 ]

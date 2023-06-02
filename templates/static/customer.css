@@ -41,9 +41,10 @@
     width: 97%;
     height: 2rem;
     outline: none;
-    border: 1px solid #067bcc;
+    /*border: 1px solid rgba(6, 123, 204, 0.5);*/
+    border: 1px solid rgba(100, 100, 100, 0.5);
     background: #343434;
-    border-radius: 2px;
+    border-radius: 50px 0 0 50px;
     color: white;
     padding-left: 10px;
 }
@@ -52,7 +53,7 @@
     width: fit-content;
     color: white;
     top: 10px;
-    margin-left: 6px;
+    margin-left: 16px;
     font-size: 12px;
     background: #067bcc;
     padding: 2px 5px 2px 5px;
@@ -105,21 +106,23 @@
 
 .cust-find-button {
     width: 10%;
-    height: 2rem;
+    height: 2.3rem;
     outline: none;
-    border: none;
-    background: #343434;
-    border-radius: 2px;
+    margin-left: -8px;
+    background: #1e1e1e;
+    /*border: 1px solid rgba(6, 123, 204, 0.5);*/
+    border: 1px solid rgba(100, 100, 100, 0.5);
+    border-radius: 0 50px 50px 0;
     color: white;
 }
 
 .cust-add-button {
-    width: 10%;
-    height: 2rem;
+    width: 6%;
+    height: 2.4rem;
     outline: none;
     border: none;
-    background: #343434;
-    border-radius: 2px;
+    background: #1e1e1e;
+    border-radius: 50px;
     color: white;
 }
 
@@ -167,7 +170,7 @@
 }
 
 .cust-find-button:hover {
-    background: #00ffd8;
+    background: #067bcc;
     color: white;
 }
 
@@ -299,13 +302,14 @@
 }
 
 .expander-customer {
-    display: flex;
+    display: block;
     padding: 10px;
-    width: 97.8%;
+    width: 40%;
+    color: white;
     transition: 0.75s ease-in-out;
-    min-height: 0;
     height: 80px;
-    background-color: #f2f2f2;
-    border: 2px solid #ddd;
+    background: rgba(37, 37, 37, 0.7);
+    border: 2px solid #067bcc;
     border-radius:2px;
+    cursor: pointer;
 }
